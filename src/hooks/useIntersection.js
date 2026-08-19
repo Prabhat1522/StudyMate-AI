@@ -15,7 +15,7 @@
 */
 import { useEffect, useRef, useState } from 'react'
 
-export function useIntersection(options = {}) {
+export function useIntersection({ threshold = 0.15, rootMargin = '0px 0px -32px 0px' } = {}) {
   // Read media query synchronously so the initial state is already correct.
   // Avoids a one-frame flash of invisible content on reduced-motion devices.
   const prefersReducedMotion =
@@ -37,9 +37,8 @@ export function useIntersection(options = {}) {
         }
       },
       {
-        threshold: 0.15,
-        rootMargin: '0px 0px -32px 0px', // trigger slightly before element fully enters
-        ...options,
+        threshold,
+        rootMargin,
       }
     )
 
@@ -47,7 +46,7 @@ export function useIntersection(options = {}) {
     if (el) observer.observe(el)
 
     return () => observer.disconnect()
-  }, [prefersReducedMotion])
+  }, [prefersReducedMotion, threshold, rootMargin])
 
   return [ref, isVisible]
 }

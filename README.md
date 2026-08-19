@@ -1,52 +1,129 @@
 # StudyMate AI
 
-> Your AI-powered study companion.
+### Your AI-powered study companion
 
-## Overview
+StudyMate AI is a frontend product concept designed to help students understand, practice, and improve their learning through structured, AI-powered study workflows. It transforms course materials (lecture notes, textbook PDFs) into interactive explanations, smart flashcards, practice quizzes, and actionable progress tracking.
 
-StudyMate AI is a modern, student-focused study workspace designed to turn course materials into deep understanding. It provides an all-in-one environment where students can upload lecture notes and PDFs, ask questions to an interactive AI tutor, practice with automatically generated quizzes and flashcards, and track topic mastery over time.
+---
 
-## Features
+## ✨ Features
 
-- **AI Study Tutor**: Get clear, contextual explanations and breakdown of difficult concepts whenever you're stuck.
-- **Smart Notes**: Upload PDFs and course materials to transform them into structured, searchable notes.
-- **AI Summaries**: Condense lengthy chapters and study materials into key takeaways and concise concept summaries.
-- **AI Quiz Generator**: Generate customized practice questions directly from your notes to test active recall.
-- **AI Flashcards**: Create reusable study cards for spaced repetition and rapid revision.
-- **Study Progress**: Track subject mastery, visualize weak areas, and prioritize what to revise next.
+- **AI Study Tutor**: Receive clear, conversational explanations with conceptual breakdowns whenever you get stuck on difficult topics.
+- **Smart Notes**: Upload and organize course PDFs into searchable, structured study notes.
+- **AI Summaries**: Condense long readings into focused, 2-minute key takeaways and concept bullet points.
+- **AI Quiz Generator**: Generate targeted multiple-choice practice questions directly from your notes to test active recall.
+- **AI Flashcards**: Create bite-sized revision cards for active spaced repetition.
+- **Study Progress**: Track subject mastery, identify weak topics, and prioritize what to revise next.
 
-## Tech Stack
+---
+
+## 🎯 Product Journey
+
+StudyMate AI structures studying into a natural four-stage workflow:
+
+```
+UPLOAD ──► UNDERSTAND ──► PRACTICE ──► IMPROVE
+```
+
+1. **Upload**: Bring your raw materials (PDFs, class notes, lecture slides).
+2. **Understand**: Break down complex concepts with the AI tutor and summarized takeaways.
+3. **Practice**: Test active recall using custom-generated quizzes and flashcards.
+4. **Improve**: Analyze topic mastery to focus future revision where it matters most.
+
+---
+
+## 🖥️ Screenshots
+
+### Hero
+*Above-the-fold value proposition with real dashboard product preview.*
+
+![StudyMate AI Hero Section](public/screenshots/hero.png)
+
+### Product Showcase
+*Interactive tabbed product preview demonstrating Overview, AI Tutor, Notes, and Quiz tabs.*
+
+![StudyMate AI Product Showcase](public/screenshots/product-showcase.png)
+
+### Core Features
+*Structured 6-card feature grid with interactive micro-demonstrations.*
+
+![StudyMate AI Core Features](public/screenshots/features.png)
+
+### Mobile Experience
+*Responsive 390px mobile layout with full touch-friendly navigation and zero horizontal overflow.*
+
+![StudyMate AI Mobile View](public/screenshots/mobile.png)
+
+---
+
+## 🛠️ Tech Stack
 
 - **Framework**: [React 19](https://react.dev/) + [Vite 8](https://vite.dev/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) (using native `@theme` CSS tokens)
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Motion**: [Framer Motion](https://www.framer.com/motion/)
 
-## Getting Started
+---
+
+## 📁 Project Structure
+
+```
+studymate-ai/
+├── public/
+│   ├── favicon.svg
+│   └── screenshots/
+├── src/
+│   ├── components/
+│   │   ├── common/          # Reusable UI primitives (Button, Card, Badge, SectionLabel)
+│   │   ├── feature/         # Feature cards & interactive visual demos
+│   │   ├── how-it-works/    # Journey step wrappers & preview panels
+│   │   ├── layout/          # Layout & footer components
+│   │   ├── product-preview/ # Showcase tabs & workspace panels (Tutor, Quiz, Notes)
+│   │   └── trust/           # Capability strip, principles & workspace hub
+│   ├── data/                # Static data & navigation link definitions
+│   ├── hooks/               # Custom hooks (e.g. useIntersection with reduced-motion support)
+│   ├── lib/                 # Shared utilities
+│   ├── pages/               # Page assembly (HomePage)
+│   ├── sections/            # Section components (Navbar, Hero, Showcase, Features, etc.)
+│   ├── App.jsx
+│   ├── index.css            # Design tokens, typography hierarchy & custom classes
+│   └── main.jsx
+├── DECISIONS.md             # Engineering rationale & architectural decisions
+├── package.json
+└── vite.config.js
+```
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 - Node.js (v18 or higher recommended)
 - npm
 
-### Installation
+### Installation & Local Run
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd studymate-ai
+git clone https://github.com/Prabhat1522/StudyMate-AI.git
+
+# Navigate into the project directory
+cd StudyMate-AI
 
 # Install dependencies
 npm install
 
-# Start the local development server
+# Start the Vite development server
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173`.
+The application will be running locally at `http://localhost:5173`.
 
-## Build
+---
 
-To create an optimized production build:
+## 📦 Production Build
+
+To compile a minified production bundle into the `dist/` folder:
 
 ```bash
 npm run build
@@ -58,10 +135,45 @@ To preview the production bundle locally:
 npm run preview
 ```
 
-## Engineering Decisions
+---
 
-For details on architecture, design choices, trade-offs, and verification workflows, see [DECISIONS.md](./DECISIONS.md).
+## 📱 Responsive Design
 
-## License
+The homepage layout was verified across multiple screen widths:
+- **390px (Mobile)**: Single-column stack, accessible hamburger menu, full touch targets, zero horizontal scrolling.
+- **768px (Tablet)**: Balanced 2-column feature and footer grids.
+- **1024px / 1440px (Desktop)**: Centered max-width container, interactive tabs, 3-column workspace diagrams.
 
-MIT © 2026 StudyMate AI. All rights reserved.
+---
+
+## ♿ Accessibility
+
+- Semantic HTML landmark elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`, `<article>`).
+- Full keyboard navigability with visible `:focus-visible` styling.
+- ARIA attributes for tab lists (`role="tablist"`, `role="tab"`, `aria-selected`, `aria-controls`).
+- Color contrast meeting WCAG AA standards.
+- Automatic respect for `prefers-reduced-motion` to disable non-essential animations.
+
+---
+
+## 🤖 AI-Assisted Development
+
+AI tools were utilized during development for project scaffolding, initial component boilerplates, and layout suggestions. All code was subsequently reviewed, manually refined, tested across breakpoints, and verified for production readiness.
+
+---
+
+## 📌 Project Status
+
+**Frontend Product Concept** — Built as a frontend engineering challenge submission.
+
+---
+
+## 📄 Engineering Decisions
+
+For detailed explanations of product trade-offs, architecture choices, and verification logs, read [DECISIONS.md](./DECISIONS.md).
+
+---
+
+## 📜 License
+
+This project was created as part of a frontend engineering challenge. All rights reserved.
